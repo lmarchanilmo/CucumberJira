@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>JiraIntegrationCucumber</groupId>
+    <artifactId>JiraIntegrationCucumber</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <gmavenplus.version>1.5</gmavenplus.version>
+        <groovy.version>2.4.7</groovy.version>
+        <cucumber.version>1.2.4</cucumber.version>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>${gmavenplus.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <!--
+                                Removed the need to generate stubs,
+                                since the project does not compile java
+                                classes.
+                             -->
+                            <!--<goal>generateStubs</goal>-->
+                            <goal>compile</goal>
+                            <!--<goal>testGenerateStubs</goal>-->
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.16</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                        <configuration>
+                            <!-- this MUST be set to 'true' in order to support cucumber reports -->
+                            <testFailureIgnore>true</testFailureIgnore>
+                            <skipITs>false</skipITs>
+                            <systemPropertyVariables>
+                                <env>${env}</env>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-core</artifactId>
+            <version>1.2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-groovy</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>${groovy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+    </dependencies>
+
+</project>
