@@ -75,7 +75,7 @@
                         <configuration>
                             <target>
 
-                                <chmod file="target/classes/drivers/chrome/mac/chromedriver_mac" perm="777"/>
+                                <chmod file="target/test-classes/drivers/chrome/mac/chromedriver_mac" perm="777"/>
                             </target>
                         </configuration>
                         <goals>
