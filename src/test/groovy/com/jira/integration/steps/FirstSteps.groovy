@@ -30,3 +30,10 @@ Then(~/^Movie Details are retrieved$/) { ->
     assert true == true
     println(search.getResults())
 }
+
+Then(~/^Movie Details are retrieved failing$/) { ->
+    // Write code here that turns the phrase above into concrete actions
+
+    assert true == false
+    println(search.getResults())
+}
