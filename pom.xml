@@ -74,8 +74,8 @@
                         <phase>process-test-classes</phase>
                         <configuration>
                             <target>
-                                <chmod file="target/classes/drivers/geckodriver" perm="777"/>
-                                <chmod file="target/classes/drivers/chromedriver_mac" perm="777"/>
+
+                                <chmod file="target/classes/drivers/chrome/mac/chromedriver_mac" perm="777"/>
                             </target>
                         </configuration>
                         <goals>
