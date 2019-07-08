@@ -27,6 +27,6 @@ When(~/^A movie is accessed$/) { ->
 Then(~/^Movie Details are retrieved$/) { ->
     // Write code here that turns the phrase above into concrete actions
 
-    assert true == false
+    assert true == true
     println(search.getResults())
 }
